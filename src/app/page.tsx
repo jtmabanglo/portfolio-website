@@ -1,42 +1,85 @@
 import Image from "next/image";
 import { Urbanist } from "next/font/google";
+import jaredPic from "./assets/jaredPic.jpeg";
+import { motion } from "motion/react";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <div className="font-[Urbanist]">
-      <header className="flex flex-row justify-between bg-gray-50 ">
-        <h1 className="font-sans p-10">JARED MABANGLO</h1>
-        <nav className="flex flex-row p-10">
-          <h1 className="px-5">About</h1>
-          <h1 className="px-5">Resume</h1>
-          <h1 className="px-5">Projects</h1>
-          <h1 className="px-5">Contact</h1>
+      <header className="w-screen flex fixed justify-between items-center bg-gray-50 bg-opacity-75 backdrop-blur-md p-14">
+        <h1 className="font-light text-2xl">
+          J A R E D &nbsp; M A B A N G L O
+        </h1>
+        <nav className="flex flex-row">
+          <h1 className="px-5 tracking-widest">ABOUT</h1>
+          <h1 className="px-5 tracking-widest">EDUCATION</h1>
+          <h1 className="px-5 tracking-widest">SKILLS</h1>
+          <h1 className="px-5 tracking-widest">PROJECTS</h1>
+          <h1 className="px-5 tracking-widest">EXPERIENCE</h1>
+          <h1 className="px-5 tracking-widest">CONTACT</h1>
         </nav>
       </header>
       <section
         id="hero"
-        className="flex flex-col justify-center p-10 h-screen bg-gray-50"
+        className="flex flex-col justify-end h-screen p-20 bg-gray-50"
       >
-        <p className="text-9xl font-bold">Hello</p>
-        <p className="text-9xl">I'm Jared</p>
-        <p>
-          I'm a recent Computer Science graduate based in the Detroit
-          Metropolitan Area. I have experience developing full-stack
-          applications, but my passion is front-end development.
+        <p className="text-9xl font-bold">Hello! 👋</p>
+        <p className="text-9xl">I'm Jared.</p>
+        <p className="text-3xl py-10">
+          I'm a recent B.S. Computer Science graduate based in the Detroit
+          Metropolitan Area.
         </p>
-        <p>Fonts: Urbanist</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-10 animate-pulse"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
       </section>
-      <section id="education" className="bg-gray-100">
-        <h2 className="font-bold">Education Section</h2>
-        <p>Bachelor of Science in Computer Science</p>
-        <p>Oakland University - Rochester, MI</p>
-        <p>January 2022 - December 2024</p>
-        <p>Summa Cum Laude</p>
-        <p>GPA: 3.95</p>
-        <p>President's List GPA 3.9-4.0: 2022, 2023, 2024</p>
-        <p>Platinum Presidential Scholar Award: 2022, 2023, 2024</p>
+
+      <section id="about" className="flex bg-white p-32">
+        <div>
+          <h2 className="font-bold text-5xl pb-5">
+            Welcome to my Portfolio Website!
+          </h2>
+          <p className="text-3xl">
+            Thank you for visiting. I have experience developing full-stack
+            applications, but my passion is front-end development.
+          </p>
+        </div>
+
+        <Image
+          className="rounded-full ml-72"
+          src={jaredPic}
+          height={400}
+          width={400}
+          alt="Picture of Jared Mabanglo"
+        />
+      </section>
+
+      <section id="education" className="flex flex-row bg-gray-100 p-32">
+        <h2 className="font-bold text-5xl">E D U C A T I O N</h2>
+        <div className="ml-32 bg-white rounded-xl p-10 ">
+          <p className="font-bold text-3xl">
+            Bachelor of Science in Computer Science
+          </p>
+          <p className="font-semibold">Oakland University - Rochester, MI</p>
+          <p>January 2022 - December 2024</p>
+          <p>Summa Cum Laude</p>
+          <p>GPA: 3.95</p>
+          <p>President's List GPA 3.9-4.0: 2022, 2023, 2024</p>
+          <p>Platinum Presidential Scholar Award: 2022, 2023, 2024</p>
+        </div>
       </section>
       <section id="skills" className="bg-gray-200">
         <h2 className="font-bold">Skills Section</h2>
