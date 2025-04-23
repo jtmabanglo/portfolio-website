@@ -1,0 +1,75 @@
+import React, { useEffect, useMemo, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
+import GraphemeSplitter from "grapheme-splitter";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { backInOut } from "motion";
+import NavBar from "./NavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons/faUser";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import ParticleBackground from "./ParticleBackground";
+import jaredPic from "./assets/jaredPic.jpeg";
+import Image from "next/image";
+
+const StaticHeroSection = () => {
+  return (
+    <div className="relative">
+      <div
+        id="hero"
+        className="flex flex-col items-center justify-center h-dvh px-28 text-white"
+      >
+        <motion.div
+          initial={{ y: 50, opacity: 0, scale: 1 }}
+          whileInView={{ y: 0, opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.3 }}
+          className="z-40 flex pb-12 pt-40 "
+        >
+          <Image
+            className="rounded-full border-2 shadow-2xl shadow-blue-500"
+            src={jaredPic}
+            height={300}
+            width={300}
+            alt="Picture of Jared Mabanglo"
+          />
+        </motion.div>
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.2, delay: 0.5 }}
+          className="z-40"
+        >
+          <h1 className="text-9xl font-bold font-dmsans">Hello, I'm Jared.</h1>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="z-40"
+        >
+          <p className="text-2xl py-10 font-dmcode ">
+            Recent B.S. Computer Science Graduate | Detroit Metropolitan Area
+          </p>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          className="flex justify-center z-40 pt-16"
+        >
+          <FontAwesomeIcon icon={faChevronDown} className="text-5xl" />
+        </motion.div>
+      </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
+        className="absolute inset-0 z-0"
+      >
+        <ParticleBackground />
+      </motion.div>
+    </div>
+  );
+};
+
+export default StaticHeroSection;
