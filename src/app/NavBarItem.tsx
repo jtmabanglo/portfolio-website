@@ -37,7 +37,7 @@ const NavBarItem = ({ name, activeSect }: Props) => {
             y2="3"
             className="stroke-green-400"
             style={{ strokeWidth: "5" }}
-            initial={{ pathLength: 1 }}
+            initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             exit={{ pathLength: 0 }}
             transition={{ type: "spring", duration: 1 }}

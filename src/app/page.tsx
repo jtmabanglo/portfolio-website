@@ -11,10 +11,16 @@ import StaticHeroSection from "./StaticHeroSection";
 import { useInView } from "react-intersection-observer";
 import FloatingNavBar from "./FloatingNavBar";
 import { AnimatePresence, motion } from "motion/react";
+import ContactSection from "./ContactSection";
+import FooterSection from "./FooterSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import UpArrowButton from "./UpArrowButton";
 
 export default function Home() {
   let activeSection = "hero";
   const [navBar, setNavBar] = useState(false);
+  const [upArrow, setUpArrow] = useState(false);
 
   const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.6 });
   const { ref: educationRef, inView: educationInView } = useInView({
@@ -29,30 +35,44 @@ export default function Home() {
   const { ref: experienceRef, inView: experienceInView } = useInView({
     threshold: 0.6,
   });
+  const { ref: contactRef, inView: contactInView } = useInView({
+    threshold: 0.6,
+  });
 
   if (aboutInView) {
     activeSection = "about";
+    console.log(activeSection);
   } else if (educationInView) {
     activeSection = "education";
+    console.log(activeSection);
   } else if (skillsInView) {
     activeSection = "skills";
+    console.log(activeSection);
   } else if (projectsInView) {
     activeSection = "projects";
+    console.log(activeSection);
   } else if (experienceInView) {
     activeSection = "experience";
+    console.log(activeSection);
+  } else if (contactInView) {
+    activeSection = "contact";
+    console.log(activeSection);
   }
 
-  const changeNavBar = () => {
+  const changeNavBarUpArrow = () => {
     if (window.scrollY >= 100) {
       setNavBar(true);
+      setUpArrow(true);
     } else if (window.scrollY < 100) {
       setNavBar(false);
+      setUpArrow(false);
     }
   };
-  window.addEventListener("scroll", changeNavBar);
+
+  window.addEventListener("scroll", changeNavBarUpArrow);
 
   return (
-    <div className="font-dmsans bg-neutral-900 text-white">
+    <div className="font-dmsans bg-neutral-900 text-white relative">
       <AnimatePresence mode="wait">
         {!navBar && <NavBar activeSect={activeSection} />}
       </AnimatePresence>
@@ -67,6 +87,9 @@ export default function Home() {
       <SkillsSection compRef={skillsRef} />
       <ProjectsSection compRef={projectsRef} />
       <ExperienceSection compRef={experienceRef} />
+      <ContactSection compRef={contactRef} />
+      <FooterSection />
+      <AnimatePresence>{upArrow && <UpArrowButton />}</AnimatePresence>
     </div>
   );
 }
